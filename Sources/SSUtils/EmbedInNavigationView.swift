@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public struct EmbedInNavigationView: ViewModifier {
+struct EmbedInNavigationView: ViewModifier {
 
     let title: String?
     let displayMode: NavigationBarItem.TitleDisplayMode
 
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         NavigationView {
             if let title = title {
                 content
