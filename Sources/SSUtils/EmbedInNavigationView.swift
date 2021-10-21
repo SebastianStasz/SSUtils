@@ -12,7 +12,7 @@ public struct EmbedInNavigationView: ViewModifier {
     let title: String?
     let displayMode: NavigationBarItem.TitleDisplayMode
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         NavigationView {
             if let title = title {
                 content
