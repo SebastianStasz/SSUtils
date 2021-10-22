@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension Image {
+public extension Image {
 
     /// Makes image rezizable with aspect ratio to fit.
     var resizableToFit: some View {
