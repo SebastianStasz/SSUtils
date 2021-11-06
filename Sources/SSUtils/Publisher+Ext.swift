@@ -1,6 +1,6 @@
 //
 //  Publisher+Ext.swift
-//  
+//  SSUtils
 //
 //  Created by Sebastian Staszczyk on 06/11/2021.
 //

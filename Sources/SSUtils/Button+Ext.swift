@@ -1,6 +1,6 @@
 //
 //  Button+Ext.swift
-//  
+//  SSUtils
 //
 //  Created by Sebastian Staszczyk on 22/10/2021.
 //
