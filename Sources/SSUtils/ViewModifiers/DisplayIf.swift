@@ -16,7 +16,7 @@ struct DisplayIf: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func displayIf(_ condition: Bool) -> some View {
         self.modifier(DisplayIf(condition: condition))
     }
