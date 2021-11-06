@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct DisplayIf: ViewModifier {
+struct DisplayIf: ViewModifier {
 
     var condition: Bool
 
