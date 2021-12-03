@@ -22,3 +22,12 @@ public extension Publisher {
         }
     }
 }
+
+
+public extension Publisher where Output == String {
+
+    func lowerCaseDiacriticInsensitive() -> AnyPublisher<String, Self.Failure> {
+        self.map { $0.lowerCaseDiacriticInsensitive }
+            .eraseToAnyPublisher()
+    }
+}
