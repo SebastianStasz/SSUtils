@@ -8,6 +8,8 @@
 import Foundation
 
 public extension Int {
+
+    /// Returns integer value as a string.
     var asString: String {
         String(self)
     }
