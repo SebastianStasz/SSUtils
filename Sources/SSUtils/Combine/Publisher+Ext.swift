@@ -31,3 +31,11 @@ public extension Publisher where Output == String {
             .eraseToAnyPublisher()
     }
 }
+
+public extension Publisher where Failure == Never {
+
+    /// Wraps this publisher with a type eraser.
+    var asDriver: Driver<Output> {
+        self.eraseToAnyPublisher()
+    }
+}
