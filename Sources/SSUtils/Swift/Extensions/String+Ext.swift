@@ -14,4 +14,8 @@ public extension String {
         self.lowercased()
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
+
+    var asDouble: Double? {
+        Double(self)
+    }
 }
