@@ -30,10 +30,4 @@ public extension NSManagedObject {
         }
         return context
     }
-
-    /// Specifies an object that should be removed from its persistent store when changes are committed.
-    func delete() {
-        guard let context = getContext() else { return }
-        context.delete(self)
-    }
 }
