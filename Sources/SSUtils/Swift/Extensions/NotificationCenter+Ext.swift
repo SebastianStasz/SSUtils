@@ -18,4 +18,14 @@ public extension NotificationCenter {
     static var keyboardWillHide: NotificationCenter.Publisher {
         NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)
     }
+
+    /// Posted immediately after the display of the keyboard.
+    static var keyboardDidShow: NotificationCenter.Publisher {
+        NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)
+    }
+
+    /// Posted immediately after the dismissal of the keyboard.
+    static var keyboardDidHide: NotificationCenter.Publisher {
+        NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)
+    }
 }
