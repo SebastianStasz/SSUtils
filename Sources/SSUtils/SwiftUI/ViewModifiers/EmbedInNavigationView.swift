@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmbedInNavigationView: ViewModifier {
+private struct EmbedInNavigationView: ViewModifier {
 
     let title: String?
     let displayMode: NavigationBarItem.TitleDisplayMode

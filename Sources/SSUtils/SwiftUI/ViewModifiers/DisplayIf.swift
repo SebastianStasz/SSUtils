@@ -7,9 +7,13 @@
 
 import SwiftUI
 
-struct DisplayIf: ViewModifier {
+private struct DisplayIf: ViewModifier {
 
-    var condition: Bool
+    private let condition: Bool
+
+    init(_ condition: Bool) {
+        self.condition = condition
+    }
 
     func body(content: Content) -> some View {
         if condition { content }
@@ -20,6 +24,6 @@ public extension View {
 
     /// Display the view if the condition is met.
     func displayIf(_ condition: Bool) -> some View {
-        self.modifier(DisplayIf(condition: condition))
+        self.modifier(DisplayIf(condition))
     }
 }
