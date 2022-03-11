@@ -14,3 +14,11 @@ public extension Array {
         !self.isEmpty
     }
 }
+
+public extension Set {
+    
+    /// A Boolean value indicating whether the set is not empty.
+    var isNotEmpty: Bool {
+        !self.isEmpty
+    }
+}

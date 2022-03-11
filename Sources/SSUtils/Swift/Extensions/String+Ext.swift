@@ -25,4 +25,16 @@ public extension String {
     var asDouble: Double? {
         Double(self)
     }
+
+    /// Returns a string with leading white spaces removed.
+    var trimLeadingSpaces: String {
+        if self.replacingOccurrences(of: " ", with: "").isEmpty { return "" }
+        guard let index = firstIndex(where: { !CharacterSet(charactersIn: String($0)).isSubset(of: .whitespaces) }) else { return self }
+        return String(self[index...])
+    }
+
+    /// Reaturs a string with white spaces and new lines removed.
+    var trim: String {
+        self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }

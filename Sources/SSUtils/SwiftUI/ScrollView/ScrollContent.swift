@@ -1,5 +1,5 @@
 //
-//  ScrollView.swift
+//  ScrollContent.swift
 //  SSUtils
 //
 //  Created by Sebastian Staszczyk on 14/02/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ScrollView<Content: View>: View {
+public struct ScrollContent<Content: View>: View {
     private let spaceName = "scrollView"
     @State private var wholeContentSize: CGSize = .zero
     @State private var scrollViewSize: CGSize = .zero
@@ -35,7 +35,7 @@ public struct ScrollView<Content: View>: View {
 
     public var body: some View {
         SizeReader($wholeContentSize) {
-            SwiftUI.ScrollView {
+            ScrollView {
                 SizeReader($scrollViewSize) { content }
                     .background(geometryReader)
                     .onPreferenceChange(ViewOffsetPreferenceKey.self) {
