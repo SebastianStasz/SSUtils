@@ -20,10 +20,14 @@ public extension String {
         replacingOccurrences(of: ",", with: ".")
     }
 
-
     /// Returns a double-precision, floating-point value type from a string, if possible.
     var asDouble: Double? {
         Double(self)
+    }
+
+    /// Returns an integer value from a string, if possible.
+    var asInt: Int? {
+        Int(self)
     }
 
     /// Returns a string with leading white spaces removed.
@@ -36,5 +40,31 @@ public extension String {
     /// Reaturs a string with white spaces and new lines removed.
     var trim: String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    func matches(_ regex: String) -> Bool {
+        NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self)
+    }
+}
+
+public extension StringProtocol {
+    func isEqualLocalizedCompare<T: StringProtocol>(to text: T) -> Bool {
+        self.localizedCompare(text) == .orderedSame
+    }
+
+    func isEqualLocalizedCaseInsensitiveCompare<T: StringProtocol>(to text: T) -> Bool {
+        self.localizedCaseInsensitiveCompare(text) == .orderedSame
+    }
+
+    func isEqualLocalizedCompare<T: StringProtocol>(to text: T, caseSensitive: Bool) -> Bool {
+        caseSensitive
+            ? self.isEqualLocalizedCompare(to: text)
+            : self.isEqualLocalizedCaseInsensitiveCompare(to: text)
+    }
+}
+
+public extension Collection where Element: StringProtocol {
+    func containsLocalizedCompare<T: StringProtocol>(to text: T, caseSensitive: Bool) -> Bool {
+        self.contains(where: { $0.isEqualLocalizedCompare(to: text, caseSensitive: caseSensitive) })
     }
 }

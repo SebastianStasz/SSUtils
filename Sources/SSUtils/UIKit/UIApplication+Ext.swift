@@ -17,4 +17,9 @@ public extension UIApplication {
             .flatMap({ $0 as? UIWindowScene })?.windows
             .first(where: \.isKeyWindow)
     }
+
+    /// Hides keyboard using  UIApplication action `UIResponder.resignFirstResponder`.
+    static func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }

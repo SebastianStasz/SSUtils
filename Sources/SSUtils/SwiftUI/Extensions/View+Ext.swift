@@ -22,7 +22,7 @@ public extension View {
         frame(maxWidth: .infinity, alignment: alignment)
     }
 
-    // MARK: -
+    // MARK: - Other
 
     /// Presents an alert with a message when a given condition is true using a string variable as a title.
     /// The Alert has one default button to close itself.
@@ -32,5 +32,10 @@ public extension View {
     ///   - message: A text string used as the message of the alert.
     func infoAlert(_ title: String = "Info", isPresented: Binding<Bool>, message: String) -> some View {
         alert(title, isPresented: isPresented, actions: {}, message: { Text(message) })
+    }
+
+    /// Hides keyboard using  UIApplication action `UIResponder.resignFirstResponder`.
+    func hideKeyboard() {
+        UIApplication.hideKeyboard()
     }
 }

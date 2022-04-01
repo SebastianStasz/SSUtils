@@ -17,7 +17,7 @@ public extension Toolbar {
     ///   - action: Action that will be performed when user press the button.
     static func trailing(systemImage: String, action: @escaping () -> Void) -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
-            Button(systemImage: systemImage, action: action())
+            Button(systemImage: systemImage, action: action)
         }
     }
 
@@ -27,7 +27,13 @@ public extension Toolbar {
     ///   - action: Action that will be performed when user press the button.
     static func leading(systemImage: String, action: @escaping () -> Void) -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            Button(systemImage: systemImage, action: action())
+            Button(systemImage: systemImage, action: action)
         }
+    }
+
+    /// Creates an ToolbarItem item which will be placed in keyboard.
+    /// - Parameter content: The content of the toolbar item.
+    static func keyboard<Content: View>(_ content: @escaping () -> Content) -> some ToolbarContent {
+        ToolbarItem(placement: .keyboard, content: content)
     }
 }

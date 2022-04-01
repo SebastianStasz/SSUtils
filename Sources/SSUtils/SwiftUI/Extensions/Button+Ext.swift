@@ -32,6 +32,20 @@ public extension Button where Label == Text {
     init<S>(_ title: S, action: @autoclosure @escaping () -> Void) where S : StringProtocol {
         self.init(action: action) { Text(title) }
     }
+
+    /// Button, with the text "edit" as a label.
+    /// - Parameter action: The action to perform when the user triggers the button.
+    /// - Returns: Button
+    static func edit(_ action: @autoclosure @escaping () -> Void) -> Button {
+        Button("Edit", action: action)
+    }
+
+    /// Button, with the text "delete" as a label.
+    /// - Parameter action: The action to perform when the user triggers the button.
+    /// - Returns: Button
+    static func delete(_ action: @autoclosure @escaping () -> Void) -> Button {
+        Button("Delete", role: .destructive, action: action)
+    }
 }
 
 public extension Button where Label == Image {
@@ -40,7 +54,7 @@ public extension Button where Label == Image {
     /// - Parameters:
     ///   - systemImage: The key of system graphics from the SF Symbols set.
     ///   - action: The action to perform when the user triggers the button.
-    init(systemImage: String, action: @autoclosure @escaping () -> Void) {
+    init(systemImage: String, action: @escaping () -> Void) {
         self.init(action: action) { Image(systemName: systemImage) }
     }
 }
