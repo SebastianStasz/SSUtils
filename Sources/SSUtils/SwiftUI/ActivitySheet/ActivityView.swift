@@ -50,4 +50,3 @@ struct ActivityView_Previews: PreviewProvider {
         ActivityView(activityAction: .constant(.init(items: "Text to share")), permittedArrowDirections: .any)
     }
 }
-

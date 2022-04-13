@@ -42,6 +42,9 @@ public extension String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    /// Returns a Boolean value that indicates whether the specified object matches the conditions that the predicate specifies.
+    /// - Parameter regex: The format string for the predicate.
+    /// - Returns: Boolean value.
     func matches(_ regex: String) -> Bool {
         NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: self)
     }

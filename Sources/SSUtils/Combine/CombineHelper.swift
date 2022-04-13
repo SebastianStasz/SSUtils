@@ -7,6 +7,7 @@
 
 import Combine
 
+/// Object that contains set of AnyCancellable
 public protocol CombineHelper: AnyObject {
     var cancellables: Set<AnyCancellable> { get set }
 }

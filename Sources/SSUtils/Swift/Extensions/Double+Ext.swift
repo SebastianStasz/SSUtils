@@ -14,7 +14,7 @@ public extension Double {
         String(self)
     }
 
-    /// /// Returns double value as a string rounded to given decimal places.
+    /// Returns double value as a string rounded to given decimal places.
     /// - Parameter decimalPlaces: Number of decimal places.
     func asString(roundToDecimalPlaces decimalPlaces: Int) -> String {
         String(format: "%.\(decimalPlaces.asString)f", self)
