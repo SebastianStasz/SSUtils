@@ -22,6 +22,11 @@ public extension View {
         frame(maxWidth: .infinity, alignment: alignment)
     }
 
+    /// Positions this view within an invisible frame with infinite width, infinite height and a specified alignment.
+    func infiniteSize(alignment: Alignment = .center) -> some View {
+        frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
+    }
+
     // MARK: - Other
 
     /// Presents an alert with a message when a given condition is true using a string variable as a title.
