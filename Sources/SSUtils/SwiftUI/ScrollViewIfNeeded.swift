@@ -16,11 +16,13 @@ public struct ScrollViewIfNeeded<Content>: View where Content : View {
 
     private let axes: Axis.Set
     private let showsIndicators: Bool
+    private let bottomPaddingOnScroll: CGFloat
     private let content: Content
 
-    public init(_ axes: Axis.Set = .vertical, showsIndicators: Bool = true, @ViewBuilder content: () -> Content) {
+    public init(_ axes: Axis.Set = .vertical, showsIndicators: Bool = true, bottomPaddingOnScroll: CGFloat = 0, @ViewBuilder content: () -> Content) {
         self.axes = axes
         self.showsIndicators = showsIndicators
+        self.bottomPaddingOnScroll = bottomPaddingOnScroll
         self.content = content()
     }
 
@@ -32,6 +34,7 @@ public struct ScrollViewIfNeeded<Content>: View where Content : View {
         GeometryReader { geometryReader in
             ScrollView(activeScrollingDirections, showsIndicators: showsIndicators) {
                 SizeReader($contentSize) { content }
+                    .padding(.bottom, fitsVertically ? 0 : bottomPaddingOnScroll)
             }
             .onReceive(NotificationCenter.keyboardDidHide) { _ in calculate(for: geometryReader) }
             .onChange(of: contentSize) { _ in calculate(for: geometryReader) }

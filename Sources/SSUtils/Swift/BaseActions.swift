@@ -18,4 +18,8 @@ public extension BaseActions {
             action(strongSelf)
         }
     }
+
+    func onMainQueue(_ action: @escaping () -> Void) {
+        DispatchQueue.main.async { action() }
+    }
 }
