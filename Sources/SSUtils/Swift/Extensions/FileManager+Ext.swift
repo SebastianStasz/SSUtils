@@ -14,9 +14,9 @@ public extension FileManager {
     ///   - fileName: Name of the file.
     ///   - fileExtension: Extension of the file.
     /// - Returns: URL that identifies the location of the file.
-    static func temporaryURL(fileName: String, fileExtension: FileExtension) -> URL {
-        temporaryURL(fileName: fileName, fileExtension: fileExtension.rawValue)
-    }
+//    static func temporaryURL(fileName: String, fileExtension: FileExtension) -> URL {
+//        temporaryURL(fileName: fileName, fileExtension: fileExtension.rawValue)
+//    }
 
     /// Creates a temporary file for the current user with specified name and extension.
     /// - Parameters:
