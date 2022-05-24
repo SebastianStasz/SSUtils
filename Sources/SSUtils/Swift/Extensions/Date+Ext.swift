@@ -14,4 +14,14 @@ public extension Date {
         let components = Calendar.current.dateComponents([.year, .month], from: self)
         return Calendar.current.date(from: components)!
     }
+
+    // Returns year, using the calendar current time zone.
+    var year: Int {
+        Calendar.current.component(.year, from: self)
+    }
+
+    // Returns month, using the calendar current time zone.
+    var month: Int {
+        Calendar.current.component(.month, from: self)
+    }
 }
