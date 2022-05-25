@@ -61,6 +61,23 @@ public extension Publisher {
             }
         }
     }
+
+    /// Includes the current element as well as the previous element from the upstream publisher in a tuple where the previous element is optional.
+    /// The first time the upstream publisher emits an element, the previous element will be `nil`.
+    /// - Returns: A publisher of a tuple of the previous and current elements from the upstream publisher.
+    func withPrevious() -> AnyPublisher<(previous: Output?, current: Output), Failure> {
+        scan(Optional<(Output?, Output)>.none) { ($0?.1, $1) }
+            .compactMap { $0 }
+            .eraseToAnyPublisher()
+    }
+
+    /// Includes the current element as well as the previous element from the upstream publisher in a tuple where the previous element is not optional.
+    /// The first time the upstream publisher emits an element, the previous element will be the `initialPreviousValue`.
+    /// - Parameter initialPreviousValue: The initial value to use as the "previous" value when the upstream publisher emits for the first time.
+    /// - Returns: A publisher of a tuple of the previous and current elements from the upstream publisher.
+    func withPrevious(startWith initialPreviousValue: Output) -> AnyPublisher<(previous: Output, current: Output), Failure> {
+        scan((initialPreviousValue, initialPreviousValue)) { ($0.1, $1) }.eraseToAnyPublisher()
+    }
 }
 
 public extension Publisher where Output == String {
