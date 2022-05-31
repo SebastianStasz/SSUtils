@@ -8,7 +8,9 @@
 import Combine
 
 public typealias Driver<T> = AnyPublisher<T, Never>
+public typealias DriverState<T> = CurrentValueSubject<T, Never>
 public typealias DriverSubject<T> = PassthroughSubject<T, Never>
+
 public typealias CombineLatest = Publishers.CombineLatest
 public typealias CombineLatest3 = Publishers.CombineLatest3
 public typealias CombineLatest4 = Publishers.CombineLatest4
