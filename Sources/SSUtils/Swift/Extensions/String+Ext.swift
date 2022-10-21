@@ -37,6 +37,13 @@ public extension String {
         return String(self[index...])
     }
 
+    func trimingTrailingSpaces(using characterSet: CharacterSet = .whitespacesAndNewlines) -> String {
+            guard let index = lastIndex(where: { !CharacterSet(charactersIn: String($0)).isSubset(of: characterSet) }) else {
+                return self
+            }
+            return String(self[...index])
+        }
+
     /// Reaturs a string with white spaces from both ends and new lines removed.
     var trim: String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -59,6 +66,15 @@ public extension String {
     func fulfil(_ regex: Regex) -> Bool {
         range(of: regex.rawValue, options: .regularExpression, range: nil, locale: nil) != nil
     }
+
+    func firstMatch(of pattern: String) -> String? {
+        let nsRange = NSRange(location: 0, length: self.count)
+        guard let regex = try? NSRegularExpression(pattern: pattern),
+              let match = regex.firstMatch(in: self, options: [], range: nsRange),
+              let range = Range(match.range(at: 0), in: self)
+        else { return nil }
+        return String(self[range])
+    }
 }
 
 public extension StringProtocol {
@@ -80,5 +96,15 @@ public extension StringProtocol {
 public extension Collection where Element: StringProtocol {
     func containsLocalizedCompare<T: StringProtocol>(to text: T, caseSensitive: Bool) -> Bool {
         self.contains(where: { $0.isEqualLocalizedCompare(to: text, caseSensitive: caseSensitive) })
+    }
+}
+
+extension NSRegularExpression {
+    convenience init(_ pattern: String) {
+        do {
+            try self.init(pattern: pattern)
+        } catch {
+            preconditionFailure("Illegal regular expression: \(pattern).")
+        }
     }
 }

@@ -9,6 +9,36 @@ import Combine
 
 public extension Publisher {
 
+    func onNext(_ perform: @escaping (Output) -> Void) -> AnyPublisher<Output, Failure> {
+        handleEvents(receiveOutput: { perform($0) }).eraseToAnyPublisher()
+    }
+
+    func map<O: AnyObject, T>(with object: O, transform: @escaping (O, Output) -> T) -> AnyPublisher<T, Failure> {
+        compactMap { [weak object] in
+            guard let object = object else { return nil }
+            return transform(object, $0)
+        }
+        .eraseToAnyPublisher()
+    }
+
+    func flatMap<O: AnyObject, T>(with object: O, transform: @escaping (O, Output) -> AnyPublisher<T, Failure>) -> AnyPublisher<T, Failure> {
+        flatMap { [weak object] in
+            guard let object = object else {
+                return Empty<T, Failure>().eraseToAnyPublisher()
+            }
+            return transform(object, $0)
+        }
+        .eraseToAnyPublisher()
+    }
+
+    func onNext<T: AnyObject>(on object: T, perform: @escaping (T, Output) -> Void) -> AnyPublisher<Output, Failure> {
+        handleEvents(receiveOutput:  { [weak object] output in
+            guard let object = object else { return }
+            perform(object, output)
+        })
+        .eraseToAnyPublisher()
+    }
+
     /// Executes a unit of asynchronous work and returns its result to the downstream subscriber.
     ///
     /// - Parameter transform: A closure that takes an element as a parameter and returns a publisher that produces elements of that type.

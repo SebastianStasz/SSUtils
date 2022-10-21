@@ -14,9 +14,20 @@ public extension Decimal {
         String(describing: self)
     }
 
+    /// Resurns decimal value as integer.
+    func toInt() -> Int {
+        (self as NSDecimalNumber).intValue
+    }
+
     /// Returns decimal value as a double.
     var asDouble: Double {
-        (self as NSDecimalNumber).doubleValue
+        Double(self.asString)!
+//        (self as NSDecimalNumber).doubleValue
+    }
+
+    /// Returns true if value is an integer.
+    var isInteger: Bool {
+        rounded() == self
     }
 
     /// Returns whole part of decimal as a string.
