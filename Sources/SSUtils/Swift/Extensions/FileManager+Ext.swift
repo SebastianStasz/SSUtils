@@ -2,7 +2,7 @@
 //  FileManager+Ext.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 10/04/2022.
+//  Created by Sebastian Staszczyk on 10/04/2022.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  Decimal+Ext.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 16/04/2022.
+//  Created by Sebastian Staszczyk on 16/04/2022.
 //
 
 import Foundation

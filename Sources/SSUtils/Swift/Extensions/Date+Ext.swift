@@ -2,7 +2,7 @@
 //  Date+Ext.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 03/04/2022.
+//  Created by Sebastian Staszczyk on 03/04/2022.
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  URLRequest+Ext.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 25/03/2022.
+//  Created by Sebastian Staszczyk on 25/03/2022.
 //
 
 import Foundation

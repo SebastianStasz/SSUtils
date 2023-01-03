@@ -2,7 +2,7 @@
 //  BaseActions.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 26/04/2022.
+//  Created by Sebastian Staszczyk on 26/04/2022.
 //
 
 import Foundation

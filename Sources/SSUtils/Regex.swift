@@ -2,7 +2,7 @@
 //  Regex.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 24/04/2022.
+//  Created by Sebastian Staszczyk on 24/04/2022.
 //
 
 import Foundation

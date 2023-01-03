@@ -2,7 +2,7 @@
 //  Sequence+Ext.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 12/04/2022.
+//  Created by Sebastian Staszczyk on 12/04/2022.
 //
 
 import Foundation

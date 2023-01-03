@@ -2,7 +2,7 @@
 //  CombineHelper.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 01/04/2022.
+//  Created by Sebastian Staszczyk on 01/04/2022.
 //
 
 import Combine

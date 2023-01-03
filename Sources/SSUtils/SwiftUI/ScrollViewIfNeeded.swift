@@ -2,7 +2,7 @@
 //  ScrollViewIfNeeded.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 22/04/2022.
+//  Created by Sebastian Staszczyk on 22/04/2022.
 //
 //
 // Based on: https://github.com/dkk/ScrollViewIfNeeded/blob/main/Sources/ScrollViewIfNeeded/ScrollViewIfNeeded.swift

@@ -2,7 +2,7 @@
 //  ActivityView.swift
 //  SSUtils
 //
-//  Created by sebastianstaszczyk on 05/04/2022.
+//  Created by Sebastian Staszczyk on 05/04/2022.
 //
 
 import SwiftUI
