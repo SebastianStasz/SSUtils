@@ -30,4 +30,9 @@ public extension Date {
     var month: Int {
         Calendar.current.component(.month, from: self)
     }
+
+    // Returns day, using the calendar current time zone.
+    var day: Int {
+        Calendar.current.component(.day, from: self)
+    }
 }

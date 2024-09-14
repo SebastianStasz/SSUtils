@@ -32,12 +32,16 @@ public extension Decimal {
 
     /// Returns whole part of decimal as a string.
     var whole: String {
-        wholeDecimal.asString
+        wholePart.asString
+    }
+
+    var wholePart: Decimal {
+        rounded(sign == .minus ? .up : .down)
     }
 
     /// Returns fraction part of decimal as a string.
     var fraction: String {
-        let fraction = self - wholeDecimal
+        let fraction = self - wholePart
         return String((fraction * 100).asString.prefix(2))
     }
 
@@ -56,9 +60,5 @@ private extension Decimal {
         var number = self
         NSDecimalRound(&result, &number, 0, roundingMode)
         return result
-    }
-
-    var wholeDecimal: Decimal {
-        rounded(sign == .minus ? .up : .down)
     }
 }

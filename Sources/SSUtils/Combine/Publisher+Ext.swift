@@ -39,6 +39,14 @@ public extension Publisher {
         .eraseToAnyPublisher()
     }
 
+    func onNext<T: AnyObject>(on object: T, perform: @escaping (T) -> Void) -> AnyPublisher<Output, Failure> where Output == Void {
+        handleEvents(receiveOutput:  { [weak object] output in
+            guard let object = object else { return }
+            perform(object)
+        })
+        .eraseToAnyPublisher()
+    }
+
     /// Executes a unit of asynchronous work and returns its result to the downstream subscriber.
     ///
     /// - Parameter transform: A closure that takes an element as a parameter and returns a publisher that produces elements of that type.

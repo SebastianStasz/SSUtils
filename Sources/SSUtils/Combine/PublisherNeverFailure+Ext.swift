@@ -19,11 +19,11 @@ public extension Publisher where Failure == Never {
     }
 
     /// Wraps this publisher with a type eraser.
-    var asDriver: Driver<Output> {
+    func asDriver() -> Driver<Output> {
         eraseToAnyPublisher()
     }
 
     func asVoid() -> Driver<Void> {
-        map { _ in }.asDriver
+        map { _ in }.asDriver()
     }
 }
